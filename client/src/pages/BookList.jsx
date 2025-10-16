@@ -7,12 +7,12 @@ const BookList = () => {
     const [books,setBooks] = useState([])
     const [loading,setLoading]=useState(true)
     const [error,setError]=useState("")
-
+  const serverUrl = import.meta.env.VITE_BACKEND_URL
     useEffect(()=>{
         const fetchBooks = async ()=>{
             try{
 
-                const response = await axios.get('http://localhost:5000/api/books/all-books')
+                const response = await axios.get(`${serverUrl}/books/all-books`)
                 console.log(response.data)
                 setBooks(response.data.books || [])
 

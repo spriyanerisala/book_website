@@ -12,7 +12,7 @@ const port = process.env.PORT
 await connectDB()
 app.use(express.json())
 app.use(cors({
-    origin: "http://localhost:5173", // or http://localhost:5173 if using Vite
+    origin: process.env.FRONTEND_URL, // or http://localhost:5173 if using Vite
   credentials: true,
   methods:["GET","POST","PUT","DELETE"],
 }))
